@@ -10,7 +10,7 @@
             </h4>
             {{event.start | date:'h:mm a'}} - {{event.end | date:'h:mm a'}} ({{event.minute_length}} minutes)
             <br/><br/>
-            <div class="text-right available-spots">
+            <div class="available-spots">
                 {{event.booked_count}} / {{event.max_guests}} Booked<br/>
                 <div ng-class="{ 'green-text': event.available_spots > 0, 'red-text': event.available_spots === 0 }">
                     {{event.available_spots}} Spots Left
