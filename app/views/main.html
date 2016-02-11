@@ -1,9 +1,7 @@
-<select ng-model="main.calendarView" ng-change="main.changeView(main.calendarView)">
-    <option value="fullWeek" selected>Full Week</option>
-    <option value="2015-06-01">Monday</option>
-    <option value="2015-06-02">Tuesday</option>
-    <option value="2015-06-03">Wednesday</option>
-    <option value="2015-06-04">Thursday</option>
-    <option value="2015-06-05">Friday</option>
+<select class="form-control" ng-model="main.calendarView" ng-change="main.changeView(main.calendarView)">
+    <option value="allDays" selected>All Days (Monday 6/1 - Wednesday 6/3)</option>
+    <option value="1">Monday 6/1</option>
+    <option value="2">Tuesday 6/2</option>
+    <option value="3">Wednesday 6/3</option>
 </select>
 <div ui-view></div>

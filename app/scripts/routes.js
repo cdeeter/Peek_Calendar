@@ -4,13 +4,12 @@
     /**
      * @ngdoc overview
      * @name peekCalendarApp
-     * @description
+     * @description Routes for the app
      * # peekCalendarApp
      *
      * Main module of the application.
      */
     angular.module('peekCalendarApp', [
-        'ngAnimate',
         'ui.router'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
@@ -25,12 +24,17 @@
             url: '/',
             templateUrl: 'views/main.html',
             controller: 'MainCtrl',
-            controllerAs: 'main'
+            controllerAs: 'main',
+            resolve: {
+                eventsForDate: function(CalendarData) {
+                    // Get all the events
+                    return CalendarData.get();
+                }
+            }
         })
         // Full week view
-        .state('main.fullWeek', {
-            url: '/',
-            templateUrl: 'views/full_week.html',
+        .state('main.allDays', {
+            templateUrl: 'views/all_days.html',
             controller: 'CalendarCtrl',
             controllerAs: 'week',
             resolve: {
@@ -54,9 +58,5 @@
                 }
             }
         });
-    })
-    .run(function($state) {
-        // Default to full week when the app starts
-        $state.go('main.fullWeek');
     });
 })();

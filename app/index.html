@@ -22,38 +22,30 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="container">
-        <h1>Peek Calendar</h1>
+    <div class="container-fluid">
+        <br/>
+        <h1 class="text-center">June 2015 Calendar</h1>
+        <div class="text-center">
+            This calendar is for <a href="https://gist.github.com/coladarci/a5b376501b180caf850f">Peek's coding challenge</a>. Select the calendar view you'd like to see from the dropdown.
+        </div>
+        <br/>
         <div ui-view></div>
     </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/routes.js"></script>
+    <script src="scripts/routes.js"></script>
+    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/calendar.js"></script>
-    <script src="scripts/services/data.js"></script>
+    <script src="scripts/services/calendar_data.js"></script>
     <!-- endbuild -->
 </body>
 </html>

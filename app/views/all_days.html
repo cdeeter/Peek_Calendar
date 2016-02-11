@@ -1,0 +1,16 @@
+<div class="row" id="full-week-calendar">
+    <div class="col-sm-4" ng-repeat="(date, event) in week.data">
+        <div class="day-name">
+            <h4>{{week.dayList[$index]}} 6/{{date}}</h4>
+        </div>
+        <div class="calendar-column">
+            <div ng-repeat="details in event | orderBy:'start'" class="event-item" ng-style="{ 'height': details.minute_length * 2 + 'px' }">
+                {{details.start | date:'h:mm a'}} - {{details.end | date:'h:mm a'}}<br/>
+                <strong>{{details.activity_name}}</strong>
+                <div class="available-spots" ng-class="{'green-text': details.available_spots > 0, 'red-text': details.available_spots === 0}">
+                    {{details.available_spots}} Available Spots
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

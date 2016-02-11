@@ -4,7 +4,6 @@
   "dependencies": {
     "angular": "^1.4.0",
     "bootstrap": "^3.2.0",
-    "angular-animate": "^1.4.0",
     "angular-ui-router": "^0.2.18"
   },
   "appPath": "app",

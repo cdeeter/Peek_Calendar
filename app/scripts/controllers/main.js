@@ -4,7 +4,7 @@
     /**
      * @ngdoc function
      * @name peekCalendarApp.controller:MainCtrl
-     * @description
+     * @description Controls the main page and the dropdown
      * # MainCtrl
      * Controller of the peekCalendarApp
      */
@@ -14,15 +14,22 @@
         var self = this;
         
         // Default calendar view is the full calendar
-        self.calendarView = 'fullWeek';
+        self.calendarView = 'allDays';
         
         // Change the calendar view from
         self.changeView = function(view) {
-            var dayOrWeekView = view === "fullWeek";
-            var state = dayOrWeekView ? "main.fullWeek" : "main.day";
-            dayOrWeekView ? $state.go(state) : $state.go(state, {"date": view});
+            var showWeek = view === 'allDays';
+            var state = showWeek ? 'main.allDays' : 'main.day';
+            if (showWeek) {
+                $state.go(state);
+            } else {
+                $state.go(state, {date: view});
+            }
         };
         
-        $state.go('main.fullWeek');
-    });
+    })
+    .run(['$state', '$rootScope', '$timeout', function ($state, $rootScope, $timeout) {
+      $timeout(function() { $state.go('main.allDays'); });   
+    }]);
+    
 })();
