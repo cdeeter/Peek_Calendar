@@ -1,14 +1,18 @@
 <div class="row" id="full-week-calendar">
-    <div class="col-sm-4" ng-repeat="(date, event) in week.data">
+    <br/>
+    <div class="col-sm-4" ng-repeat="(day, event) in week.data">
         <div class="day-name">
-            <h4>{{week.dayList[$index]}} 6/{{date}}</h4>
+            <h4>{{week.dayList[$index]}} 6/{{day}}</h4>
         </div>
-        <div class="calendar-column">
-            <div ng-repeat="details in event | orderBy:'start'" class="event-item" ng-style="{ 'height': details.minute_length * 2 + 'px' }">
-                {{details.start | date:'h:mm a'}} - {{details.end | date:'h:mm a'}}<br/>
-                <strong>{{details.activity_name}}</strong>
-                <div class="available-spots" ng-class="{'green-text': details.available_spots > 0, 'red-text': details.available_spots === 0}">
-                    {{details.available_spots}} Available Spots
+        <br/>
+        <div class="activity-block" ng-repeat="time in main.timeList" ng-style="{'margin-top': (60 * $index) + 'px'}">
+            <div ng-repeat="details in event | checkTime:time" class="event-item" ng-style="{ 'height': details.minute_length * 2 + 'px' }" ng-class="{ 'pull-right': week.checkOverlap(details, day) }">
+                <div class="timeslot">
+                    {{details.start | date:'h:mm a'}} - {{details.end | date:'h:mm a'}}<br/>
+                    <strong>{{details.activity_name}}</strong>
+                    <div class="available-spots" ng-class="{ 'green-text': details.available_spots > 0, 'red-text': details.available_spots === 0 }">
+                        {{details.available_spots}} Available Spots
+                    </div>
                 </div>
             </div>
         </div>

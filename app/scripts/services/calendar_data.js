@@ -42,7 +42,7 @@
         self.set = function() {
             var deferred = $q.defer();
             // Get the calendar data from the JSON file
-            $http.get('data/event_data.json').success(function(data) {
+            $http.get('data/timeslots.json').success(function(data) {
                 var orderedEvents = {};
                 var timeslots = data.timeslots;
                 // Reorder data so that it's split by date
@@ -57,8 +57,12 @@
                 // Set the events
                 self.events = orderedEvents;
                 // Return the events in the promise response
-                deferred.resolve(orderedEvents);
+                deferred.resolve(orderedEvents); 
                 return deferred.promise;
+            })
+            // An error isn't likely but just in case!
+            .error(function(response) {
+                console.log(response);
             });
         };
     });

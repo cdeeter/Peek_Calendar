@@ -9,13 +9,40 @@
     color: red;
 }
 
-/* Week view */
-#full-week-calendar {
+/* All Views */
+#calendar-body {
     background-color: #ebf3f9;
     border: 1px solid #337ab7;
     border-radius: 15px;
     padding: 10px;
     margin: 5px;
+    min-height: 1250px;
+}
+
+.time-list {
+    margin-top: 70px;
+}
+
+.calendar-column {
+    padding: 15px;
+}
+
+.available-spots {
+    font-size: 12px;
+}
+
+.event-item {
+    display: inline-block;
+    border: 1px solid #337ab7;
+    background-color: rgba(215, 230, 244, 0.7);
+    padding: 0px 10px 0px 10px;
+    border-top: 1px solid black;
+    width: 48%;
+}
+
+/* Week view */
+#full-week-calendar .timeslot {
+    position: absolute;
 }
 
 .day-name {
@@ -26,26 +53,16 @@
     padding: 5px;
 }
 
-.calendar-column {
-    padding: 15px;
-}
-
-.available-spots {
-    float: right;
-    font-size: 12px;
-}
-
-.event-item {
-    border: 1px solid #337ab7;
-    width: 100%;
-    padding: 15px 10px 15px 10px;
-    background-color: #d7e6f4;
-}
-
 /* Day View */
 #day-calendar .calendar-column {
     background-color: #ebf3f9;
     margin: 5px;
+}
+
+#day-calendar .available-spots {
+    display: inline-block;
+    margin-top: -75px;
+    font-size: 14px;
 }
 
 .time-block {
@@ -57,21 +74,7 @@
     display: block;
     position: absolute;
     float: left;
-    width: 96%;
-}
-
-#day-calendar .event-item {
-    width: 50%;
-    background-color: rgba(215, 230, 244, 0.7);
-    display: inline-block;
-    padding: 0px 10px 0px 10px;
-    border-top: 1px solid black;
-}
-
-#day-calendar .available-spots {
-    display: inline-block;
-    margin-top: -70px;
-    font-size: 14px;
+    width: 95%;
 }
 
 

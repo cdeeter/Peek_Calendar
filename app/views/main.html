@@ -4,4 +4,17 @@
     <option value="2">Tuesday 6/2</option>
     <option value="3">Wednesday 6/3</option>
 </select>
-<div ui-view></div>
+<div class="row">
+    <div id="calendar-body">
+        <div class="col-xs-1">
+            <div class="time-list">
+                <div ng-repeat="time in main.timeList" class="time-block">
+                    {{time}}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

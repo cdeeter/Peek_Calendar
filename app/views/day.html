@@ -3,26 +3,17 @@
     <div class="day-name">
         <h4>{{day.dayList[day.date-1]}} 6/{{day.date}}</h4>
     </div>
-    <div class="row calendar-column">
-        <div class="col-xs-2">
-            <div ng-repeat="time in day.timeList" class="time-block">
-                {{time}}
-            </div>
-        </div>
-        <div class="col-xs-10">
-            <div class="activity-block" ng-repeat="time in day.timeList" ng-style="{'margin-top': (60 * $index) + 10 + 'px'}">
-                <div ng-repeat="event in day.data | checkTime:time" class="event-item" ng-style="{ 'height': (event.minute_length * 2) + 20 + 'px' }" ng-class="{ 'pull-right': day.checkOverlap(event) }">
-                    <h4>
-                        <strong>{{event.activity_name}}</strong>
-                    </h4>
-                    {{event.start | date:'h:mm a'}} - {{event.end | date:'h:mm a'}} ({{event.minute_length}} minutes)
-                    <br/><br/>
-                    <div class="pull-right text-right available-spots">
-                        {{event.booked_count}} / {{event.max_guests}} Booked<br/>
-                        <div ng-class="{'green-text': event.available_spots > 0, 'red-text': event.available_spots === 0}">
-                            {{event.available_spots}} Spots Left
-                        </div>
-                    </div>
+    <div class="activity-block" ng-repeat="time in main.timeList" ng-style="{ 'margin-top': (60 * $index) + 10 + 'px' }">
+        <div ng-repeat="event in day.data | checkTime:time" class="event-item" ng-style="{ 'height': (event.minute_length * 2) + 25 + 'px' }" ng-class="{ 'pull-right': day.checkOverlap(event) }">
+            <h4>
+                <strong>{{event.activity_name}}</strong>
+            </h4>
+            {{event.start | date:'h:mm a'}} - {{event.end | date:'h:mm a'}} ({{event.minute_length}} minutes)
+            <br/><br/>
+            <div class="text-right available-spots">
+                {{event.booked_count}} / {{event.max_guests}} Booked<br/>
+                <div ng-class="{ 'green-text': event.available_spots > 0, 'red-text': event.available_spots === 0 }">
+                    {{event.available_spots}} Spots Left
                 </div>
             </div>
         </div>
